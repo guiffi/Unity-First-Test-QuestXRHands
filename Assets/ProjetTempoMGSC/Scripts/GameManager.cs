@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Debug.Log(SceneManager.sceneCountInBuildSettings);
        Fob.onFinished.AddListener(OnFobFinished);
     }
 
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
 
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings)
         {
             nextSceneIndex = 0; //Home scene
         }
